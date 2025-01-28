@@ -141,7 +141,45 @@ class DB{
       nombre: campusMap[i]['nombre']
     ));
   }
+  //CRUD alumnoasignatura
+  //insertar 
+  static Future <void> insertAlumnoAsignatura(AlumnoAsignatura alumnoasignatura)async{
+    Database database= await _openDB();
+    await database.insert(
+      "alumnoasignatura", alumnoasignatura.toMap());
+  }
 
+  //eliminar
+  static Future <void> deleteAlumnoAsignatura(AlumnoAsignatura alumnoasignatura)async{
+    Database database= await _openDB();
+    await database.delete(
+      "alumnoasignatura",
+      where: "id = ?",
+      whereArgs: [alumnoasignatura.id]);
+  }
 
+  //Actualizar
+  static Future<void> updateAlumnoAsignatura(AlumnoAsignatura alumnoasignatura)async{
+    Database database= await _openDB();
+    await database.update(
+      "alumnoasignatura", 
+      alumnoasignatura.toMap(),
+      where: "id=?",
+      whereArgs: [alumnoasignatura.id]);
+  }
+
+  //Listar AlumnoAsignatura
+
+  static Future<List<AlumnoAsignatura>>ListaAlumnoAsignatura() async{
+    Database database =await _openDB();
+    final List<Map<String,dynamic>> AlumnoAsignaturaMap =await database.query("alumnoasignatura");
+    return List.generate(AlumnoAsignaturaMap.length,
+    (i)=>AlumnoAsignatura(
+      id: AlumnoAsignaturaMap[i]['id'],
+      id_alumno: AlumnoAsignaturaMap[i]['id_alumno'],
+      id_asignatura: AlumnoAsignaturaMap[i]['id_asignatura']
+
+    ));
+  }
 
 }
