@@ -1,10 +1,10 @@
 class Campus {
   int ?id;
   String? nombre;
-  DateTime? fundacion;
+  
 
-  Campus({this.id,this.nombre,this.fundacion});
+  Campus({this.id,this.nombre});
   Map<String,dynamic> toMap(){
-    return {'id':id,'nombre':nombre,'fundacion':fundacion};
+    return {'id':id,'nombre':nombre};
   }
 }
