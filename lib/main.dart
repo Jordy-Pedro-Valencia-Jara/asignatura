@@ -1,5 +1,9 @@
+import 'package:asignatura/EditarAlumno.dart';
+import 'package:asignatura/ListaAlumno.dart';
 import 'package:flutter/material.dart';
 import 'package:asignatura/Inicio.dart';
+import 'package:asignatura/ListaAsignatura.dart';
+import 'package:asignatura/ListaCampus.dart ';
 
 void main() {
   runApp(const MyApp());
@@ -27,7 +31,12 @@ class MyHomePage extends StatelessWidget{
     return MaterialApp(
       initialRoute: "/",
       routes: {
-        "/":(context) =>Inicio()
+        "/":(context) =>Inicio(),
+        '/ListaAlumno': (context) => ListaAlumno(),
+        '/ListaAsignatura': (context) => ListaAsignatura(),
+        '/ListaCampus': (context) => ListaCampus(),
+        '/EditarAlumno': (context)=>EditarAlumno(),
+
       },
     );
   }
