@@ -15,7 +15,7 @@ class ListaAlumno extends StatelessWidget{
         onPressed: (){
           Navigator.pushNamed
           (context, "/EditarAlumno",
-          arguments: Alumno(id:0,nombre: "",apellido: ""));
+          arguments: Alumno(id:null,nombre: "",apellido: ""));
         }  
       ),
       body: Container(
@@ -37,7 +37,7 @@ class _MiLista extends State<Lista>{
   }
 
   mostrarAlumnos()async{
-    List<Alumno> auxAlumno = await DB.ListaAlumnos();
+    List<Alumno> auxAlumno = await DB.listaAlumnos();
     setState(() {
       alumno=auxAlumno;
     });

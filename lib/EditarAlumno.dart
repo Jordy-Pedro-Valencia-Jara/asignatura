@@ -32,6 +32,7 @@ class _EditarState extends State<EditarAlumno>{
 
     //Inicializar objeto alumno
     Alumno alumno= args;
+
     nombreController.text = alumno.nombre ??  "";
     apellidoController.text = alumno.apellido ?? "";
     String encabezado="";
@@ -53,7 +54,7 @@ class _EditarState extends State<EditarAlumno>{
               TextFormField(
                 controller: nombreController,
                 validator: (value) {
-                  if(value== null|| value.isEmpty){
+                  if(value == null || value.isEmpty){
                     return "Necesita un nombre";
                   }else{
                     return null;
@@ -76,14 +77,16 @@ class _EditarState extends State<EditarAlumno>{
               ElevatedButton(
                 onPressed:(){
                   if(_formKey.currentState?.validate() ?? false){
-                     if((alumno.id ?? 0)>0){
+                    //(alumno.id ?? 0) > 0
+                     if(alumno.id != null && alumno.id! > 0){
                       alumno.nombre= nombreController.text;
                       alumno.apellido= apellidoController.text;
                       DB.updateAlumno(alumno);
                      }else{
-                      alumno.nombre= nombreController.text;
-                      alumno.apellido= apellidoController.text;
-                      DB.insertAlumno(alumno);
+                      DB.insertAlumno(Alumno(
+                        nombre: nombreController.text,
+                        apellido: apellidoController.text,
+                      ));
                      }
                      Navigator.pushReplacementNamed(context, "/ListaAlumno");
                   }
