@@ -50,25 +50,25 @@ class DB{
   }
 // CRUD alumno
 //insertar
-  static Future <void> insertAlumno(Alumno alumno)async{
+  static Future <void> insertAlumno(Alumno alum)async{
     Database database = await _openDB();
-    await database.insert("alumno", alumno.toMap());
+    await database.insert("alumno", alum.toMap());
   }
   //eliminar
-  static Future <void> deleteAlumno(Alumno alumno)async{
+  static Future <void> deleteAlumno(Alumno alum)async{
     Database database= await _openDB();
     await database.delete(
-      "alumno",where: "id = ?",whereArgs: [alumno.id]);
+      "alumno",where: "id = ?",whereArgs: [alum.id]);
   }
   //editar
-  static Future <void> updateAlumno(Alumno alumno)async{
+  static Future <void> updateAlumno(Alumno alum)async{
     Database database= await _openDB();
     await database.update(
-      "alumno", alumno.toMap(),where: "id = ?",whereArgs: [alumno.id]);
+      "alumno", alum.toMap(),where: "id = ?",whereArgs: [alum.id]);
   }
 
   //Lista de alumnos
-    static Future<List<Alumno>> ListaAlumnos() async {
+    static Future<List<Alumno>> listaAlumnos() async {
     Database database = await _openDB();
     final List<Map<String, dynamic>> alumnosMap = await database.query("alumno");
 
@@ -76,7 +76,7 @@ class DB{
             (i) => Alumno(
               id: alumnosMap[i]['id'],
               nombre: alumnosMap[i]['nombre'],
-              apellido: alumnosMap[i]['especie']
+              apellido: alumnosMap[i]['apellido']
             )
           );
   }
@@ -101,7 +101,7 @@ class DB{
   }
   
   //Lista de asiganturas
-    static Future<List<Asignatura>> ListaAsignaturas() async {
+    static Future<List<Asignatura>> listaAsignaturas() async {
     Database database = await _openDB();
     final List<Map<String, dynamic>> asignaturaMap = await database.query("asignatura");
 
@@ -132,7 +132,7 @@ class DB{
       "campus", campus.toMap(),where: "id = ?",whereArgs: [campus.id]);
   }
   //lista de campus
-  static Future<List<Campus>>ListaCampus()async{
+  static Future<List<Campus>>listaCampus()async{
     Database database =await _openDB();
     final List<Map<String,dynamic>> campusMap =await database.query("campus");
     return List.generate(campusMap.length,
@@ -170,7 +170,7 @@ class DB{
 
   //Listar AlumnoAsignatura
 
-  static Future<List<AlumnoAsignatura>>ListaAlumnoAsignatura() async{
+  static Future<List<AlumnoAsignatura>>listaAlumnoAsignatura() async{
     Database database =await _openDB();
     final List<Map<String,dynamic>> AlumnoAsignaturaMap =await database.query("alumnoasignatura");
     return List.generate(AlumnoAsignaturaMap.length,
