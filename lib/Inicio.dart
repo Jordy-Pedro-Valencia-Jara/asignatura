@@ -1,7 +1,5 @@
 import 'dart:core';
-import 'package:asignatura/ListaAlumno.dart';
-import 'package:asignatura/ListaAsignatura.dart';
-import 'package:asignatura/ListaCampus.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 

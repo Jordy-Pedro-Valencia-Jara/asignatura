@@ -2,9 +2,9 @@ import 'dart:core';
 
 import 'package:asignatura/asignatura.dart';
 import 'package:flutter/material.dart';
-import 'package:asignatura/alumno.dart';
+
 import 'package:asignatura/db.dart';
-import 'package:path/path.dart';
+
 
 class EditarAsignatura extends StatefulWidget{
   @override

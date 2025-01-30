@@ -1,7 +1,7 @@
 import 'dart:core';
 import 'package:asignatura/asignatura.dart';
 import 'package:flutter/material.dart';
-import 'package:asignatura/alumno.dart';
+
 import 'package:asignatura/db.dart';
 
 class ListaAsignatura extends StatelessWidget{

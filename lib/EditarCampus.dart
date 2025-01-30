@@ -1,25 +1,25 @@
 import 'dart:core';
 
 import 'package:flutter/material.dart';
-import 'package:asignatura/alumno.dart';
+import 'package:asignatura/campus.dart';
 import 'package:asignatura/db.dart';
 
 
-class EditarAlumno extends StatefulWidget{
+class EditarCampus extends StatefulWidget{
   @override
   _EditarState createState() => _EditarState();
 }
 
-class _EditarState extends State<EditarAlumno>{
+class _EditarState extends State<EditarCampus>{
   final _formKey =GlobalKey<FormState>();
   final nombreController= TextEditingController();
-  final apellidoController= TextEditingController();
+
   
   @override
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)?.settings.arguments;
 
-    if(args==null || args is! Alumno){
+    if(args==null || args is! Campus){
       return Scaffold(
         appBar: AppBar(
           title: Text("Error"),
@@ -30,16 +30,16 @@ class _EditarState extends State<EditarAlumno>{
       );
     }
 
-    //Inicializar objeto alumno
-    Alumno alumno= args;
+    //Inicializar objeto asigatura
+    Campus campus= args;
 
-    nombreController.text = alumno.nombre ??  "";
-    apellidoController.text = alumno.apellido ?? "";
+    nombreController.text = campus.nombre ??  "";
+
     String encabezado="";
-    if (nombreController.text=="" && apellidoController.text==""){
-      encabezado="Crear Alumno";
+    if (nombreController.text=="" ){
+      encabezado="Crear Asignatura";
     }else{
-      encabezado="Editar Alumno";
+      encabezado="Editar Asignatura";
     }
     return Scaffold(
       appBar: AppBar(
@@ -62,33 +62,21 @@ class _EditarState extends State<EditarAlumno>{
                 },
                 decoration: InputDecoration(labelText: "Nombre"),
               ),
-              TextFormField(
-                controller: apellidoController,
-                validator: (value) {
-                  if(value== null|| value.isEmpty){
-                    return "Necesita un apellido";
-                  }else{
-                    return null;
-                  } 
-                },
-                decoration: InputDecoration(labelText: "Apellido"),
-              ),
+
               SizedBox(height: 30,),
               ElevatedButton(
                 onPressed:(){
                   if(_formKey.currentState?.validate() ?? false){
                     //(alumno.id ?? 0) > 0
-                     if(alumno.id != null && alumno.id! > 0){
-                      alumno.nombre= nombreController.text;
-                      alumno.apellido= apellidoController.text;
-                      DB.updateAlumno(alumno);
+                     if(campus.id != null && campus.id! > 0){
+                      campus.nombre = nombreController.text;
+                      DB.updateCampus(campus);
                      }else{
-                      DB.insertAlumno(Alumno(
+                      DB.insertCampus(Campus(
                         nombre: nombreController.text,
-                        apellido: apellidoController.text,
                       ));
                      }
-                     Navigator.pushReplacementNamed(context, "/ListaAlumno");
+                     Navigator.pushReplacementNamed(context, "/ListaCampus");
                   }
                 },
                 child: Text("Guardar"), 
@@ -104,7 +92,6 @@ class _EditarState extends State<EditarAlumno>{
   void dispose() {
     // Liberar los controladores cuando el widget se destruya
     nombreController.dispose();
-    apellidoController.dispose();
     super.dispose();
   }
 }

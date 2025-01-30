@@ -4,7 +4,7 @@ import 'package:asignatura/ListaAlumno.dart';
 import 'package:flutter/material.dart';
 import 'package:asignatura/Inicio.dart';
 import 'package:asignatura/ListaAsignatura.dart';
-import 'package:asignatura/ListaCampus.dart ';
+import 'package:asignatura/ListaCampus.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,8 +36,9 @@ class MyHomePage extends StatelessWidget{
         '/ListaAlumno': (context) => ListaAlumno(),
         '/ListaAsignatura': (context) => ListaAsignatura(),
         '/ListaCampus': (context) => ListaCampus(),
-        '/EditarAlumno': (context)=>EditarAlumno(),
-        '/EditarAsignatura':(context)=>EditarAsignatura(),
+        '/EditarAlumno': (context)=> EditarAlumno(),
+        '/EditarAsignatura':(context)=> EditarAsignatura(),
+        //'/EditarCampus':(context)=> EditarCampus(),
 
       },
     );
