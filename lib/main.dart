@@ -1,5 +1,6 @@
 import 'package:asignatura/EditarAlumno.dart';
 import 'package:asignatura/EditarAsignatura.dart';
+import 'package:asignatura/EditarCampus.dart';
 import 'package:asignatura/ListaAlumno.dart';
 import 'package:flutter/material.dart';
 import 'package:asignatura/Inicio.dart';
@@ -38,7 +39,7 @@ class MyHomePage extends StatelessWidget{
         '/ListaCampus': (context) => ListaCampus(),
         '/EditarAlumno': (context)=> EditarAlumno(),
         '/EditarAsignatura':(context)=> EditarAsignatura(),
-        //'/EditarCampus':(context)=> EditarCampus(),
+        '/EditarCampus':(context)=> EditarCampus(),
 
       },
     );
