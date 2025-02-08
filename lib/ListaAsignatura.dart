@@ -65,7 +65,8 @@ class _MiLista extends State<Lista>{
         title: Text(asignatura[i].nombre??"vacio"),
         trailing: MaterialButton(
           onPressed:(){
-            Navigator.pushNamed(context, "/EditarAlumno",arguments:asignatura[i]);
+            Navigator.pushNamed(context, "/EditarAsignatura",arguments:asignatura[i]);
+            print("presionaste editar y se mando ${asignatura[i].nombre}");
           },
           child: Icon(Icons.edit),
         ),

@@ -30,9 +30,22 @@ class _EditarState extends State<EditarAsignatura> {
     List<Campus> listaCampus = await DB.listaCampus();
     setState(() {
       campus = listaCampus; // Actualizar el estado con la lista de campus
+      _inicializarCampusSeleccionado();
     });
   }
 
+  void _inicializarCampusSeleccionado(){
+    final args = ModalRoute.of(context)?.settings.arguments;
+    if(args!=null && args is Asignatura){
+      Asignatura asignatura =args;
+      if (asignatura.campusId!=null){
+        _selectedCampus =campus.firstWhere(
+          (campus)=>campus.id==asignatura.campusId,
+          orElse: ()=> Campus(id: null,nombre: null)
+        );
+      }
+    }
+  }
   @override
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)?.settings.arguments;
@@ -43,7 +56,7 @@ class _EditarState extends State<EditarAsignatura> {
           title: Text("Error"),
         ),
         body: Center(
-          child: Text("Argumento vacío"),
+          child: Text("Argumento vacío "),
         ),
       );
     }
