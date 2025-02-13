@@ -2,6 +2,7 @@ import 'dart:core';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:asignatura/main.dart';
 
 class Inicio extends StatelessWidget{
   @override
@@ -63,6 +64,24 @@ class Inicio extends StatelessWidget{
               ),
               child: Text(
                 "Lista de Campus",
+                style: TextStyle(fontSize: 18),
+              ),
+        ),
+      ),
+      SizedBox(height: 30,),
+            SizedBox(
+              width: 300,
+              height: 50,
+              child: ElevatedButton(
+                onPressed: (){
+                  Navigator.pushNamed(context,"/ListaMatricula");
+                },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+                foregroundColor: Colors.amber,
+              ),
+              child: Text(
+                "Matriculados",
                 style: TextStyle(fontSize: 18),
               ),
         ),
