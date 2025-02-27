@@ -1,6 +1,7 @@
 import 'package:asignatura/alumno.dart';
 import 'package:flutter/material.dart';
 import 'package:asignatura/db.dart';
+import 'package:asignatura/perfil.dart';
 
 class ListaMatricula extends StatelessWidget{
   @override
@@ -44,10 +45,13 @@ class _vistalista extends State<vistalista>{
     });
   }
 
-  void onAlumnoClicked(String alumno){
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text("Alumno $alumno")),
-    );
+  void onAlumnoClicked(Alumno alumno){
+    //ScaffoldMessenger.of(context).showSnackBar(
+    //SnackBar(content: Text("Alumno $alumno")),
+    //);
+    Navigator.push(context, MaterialPageRoute(
+      builder: (context) => Perfil(alumno),
+    ),);
   }
 
   @override
@@ -80,7 +84,7 @@ class _vistalista extends State<vistalista>{
                 return ListTile(
                   title: Text(alumnofiltro[index].nombre??""),
                   onTap: () {
-                    onAlumnoClicked(alumnofiltro[index].nombre??"");
+                    onAlumnoClicked(alumnofiltro[index]);
                   },
                 );
               },
