@@ -42,7 +42,7 @@ class MyHomePage extends StatelessWidget{
         '/EditarAsignatura':(context)=> EditarAsignatura(),
         '/EditarCampus':(context)=> EditarCampus(),
         '/ListaMatricula':(context)=> ListaMatricula(),
-
+ 
       },
     );
   }
