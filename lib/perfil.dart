@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:asignatura/alumno.dart';
+import 'package:asignatura/matricular.dart';
 
 class Perfil extends StatelessWidget {
   final Alumno alumno;
@@ -8,9 +9,7 @@ class Perfil extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Pprincipal(alumno), // Pasamos el objeto Alumno a Pprincipal
-    );
+    return Pprincipal(alumno); // Pasamos el objeto Alumno a Pprincipal
   }
 }
 
@@ -29,6 +28,21 @@ class _PprincipalState extends State<Pprincipal> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Alumno: ${widget.alumno.nombre ?? 'Sin Nombre'}"),
+      ),
+      floatingActionButton: 
+      FloatingActionButton(
+        child: Icon(Icons.add),        
+        onPressed: ()=>{
+          Navigator.pushNamed(context, "/Matricular"),
+          print(widget.alumno.id)
+          },
+      ),
+      body: Column(
+        children: [
+          ListTile(
+            
+          ),
+        ],
       ),
     );
   }

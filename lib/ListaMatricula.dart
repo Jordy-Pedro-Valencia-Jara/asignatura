@@ -6,9 +6,7 @@ import 'package:asignatura/perfil.dart';
 class ListaMatricula extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home:vistalista(),
-    );
+    return vistalista();
   }
 }
 
@@ -49,9 +47,8 @@ class _vistalista extends State<vistalista>{
     //ScaffoldMessenger.of(context).showSnackBar(
     //SnackBar(content: Text("Alumno $alumno")),
     //);
-    Navigator.push(context, MaterialPageRoute(
-      builder: (context) => Perfil(alumno),
-    ),);
+    Navigator.pushNamed(context, "/Perfil",arguments: (alumno),
+    );
   }
 
   @override

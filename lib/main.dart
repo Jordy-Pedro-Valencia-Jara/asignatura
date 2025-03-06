@@ -7,6 +7,9 @@ import 'package:asignatura/Inicio.dart';
 import 'package:asignatura/ListaAsignatura.dart';
 import 'package:asignatura/ListaCampus.dart';
 import 'package:asignatura/ListaMatricula.dart';
+import 'package:asignatura/perfil.dart';
+import 'package:asignatura/matricular.dart';
+import 'package:asignatura/alumno.dart';
 
 void main() {
   runApp(const MyApp());
@@ -42,7 +45,8 @@ class MyHomePage extends StatelessWidget{
         '/EditarAsignatura':(context)=> EditarAsignatura(),
         '/EditarCampus':(context)=> EditarCampus(),
         '/ListaMatricula':(context)=> ListaMatricula(),
- 
+        '/Matricular': (context) => Matricular(),
+        '/Perfil': (context) => Perfil(ModalRoute.of(context)!.settings.arguments as Alumno),
       },
     );
   }
