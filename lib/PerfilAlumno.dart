@@ -5,10 +5,10 @@ import 'package:asignatura/alumno.dart';
 import 'package:asignatura/matricular.dart';
 import 'package:asignatura/db.dart';
 
-class Perfil extends StatelessWidget {
+class PerfilAlumno extends StatelessWidget {
   final Alumno alumno;
 
-  Perfil(this.alumno);
+  PerfilAlumno(this.alumno);
 
   @override
   Widget build(BuildContext context) {

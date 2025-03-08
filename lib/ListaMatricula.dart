@@ -1,7 +1,7 @@
 import 'package:asignatura/alumno.dart';
 import 'package:flutter/material.dart';
 import 'package:asignatura/db.dart';
-import 'package:asignatura/perfil.dart';
+import 'package:asignatura/PerfilAlumno.dart';
 
 class ListaMatricula extends StatelessWidget{
   @override
@@ -47,7 +47,7 @@ class _vistalista extends State<vistalista>{
     //ScaffoldMessenger.of(context).showSnackBar(
     //SnackBar(content: Text("Alumno $alumno")),
     //);
-    Navigator.pushNamed(context, "/Perfil",arguments: (alumno),
+    Navigator.pushNamed(context, "/PerfilAlumno",arguments: (alumno),
     );
   }
 

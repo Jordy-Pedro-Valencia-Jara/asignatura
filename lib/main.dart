@@ -7,7 +7,7 @@ import 'package:asignatura/Inicio.dart';
 import 'package:asignatura/ListaAsignatura.dart';
 import 'package:asignatura/ListaCampus.dart';
 import 'package:asignatura/ListaMatricula.dart';
-import 'package:asignatura/perfil.dart';
+import 'package:asignatura/PerfilAlumno.dart';
 import 'package:asignatura/matricular.dart';
 import 'package:asignatura/alumno.dart';
 
@@ -46,7 +46,7 @@ class MyHomePage extends StatelessWidget{
         '/EditarCampus':(context)=> EditarCampus(),
         '/ListaMatricula':(context)=> ListaMatricula(),
         '/Matricular': (context) => Matricular(),
-        '/Perfil': (context) => Perfil(ModalRoute.of(context)!.settings.arguments as Alumno),
+        '/PerfilAlumno': (context) => PerfilAlumno(ModalRoute.of(context)!.settings.arguments as Alumno),
       },
     );
   }
