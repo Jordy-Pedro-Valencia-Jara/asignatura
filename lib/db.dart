@@ -32,7 +32,7 @@ class DB{
     id_alumno INTEGER NOT NULL,
     id_asignatura INTEGER NOT NULL,
     FOREIGN KEY (id_alumno) REFERENCES alumno(id),
-    FOREIGN KEY (ID_asignatura) REFERENCES asignatura(id)
+    FOREIGN KEY (id_asignatura) REFERENCES asignatura(id)
   )''';
 
   static Future <Database> _openDB() async{
@@ -46,7 +46,7 @@ class DB{
       }catch(e){
             print("Error al crear tablas: $e");
       }
-    },version :1);
+    },version :2);
   }
 // CRUD alumno
 //insertar
